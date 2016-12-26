@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Events } from 'ionic-angular';
+import { Events, NavController } from 'ionic-angular';
+import { DetailPage } from '../details/details';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +11,7 @@ export class HomePage {
   searchString: string = "";
   items: any[] = [];
 
-  constructor() {
+  constructor(private nav: NavController) {
     for (let i = 0; i < 10; i ++) {
       this.items.push({
         name: "name",
@@ -53,5 +54,6 @@ export class HomePage {
 
   goToDetails(itemId: number) {
     console.log(itemId);
+    this.nav.push(DetailPage);
   }
 }
