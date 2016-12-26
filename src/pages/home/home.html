@@ -1,10 +1,12 @@
-<ion-content padding>
+<ion-header>
   <ion-searchbar
     [(ngModel)]="searchString"
     [showCancelButton]="false"
     (ionInput)="onInput($event)"
     (ionCancel)="onCancel($event)">
   </ion-searchbar>
+</ion-header>
+<ion-content padding>
   <ion-list>
     <ion-item *ngFor="let item of items">
      <ion-card (click)="goToDetails(item.iter)">
@@ -17,6 +19,10 @@
      </ion-card>
     </ion-item>
   </ion-list>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
