@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Events, NavController} from 'ionic-angular';
+import { Events, NavController, MenuController } from 'ionic-angular';
 import { DetailPage } from '../details/details';
 import { IdentifyDto } from '../../dto/IdentifyDto'
 
@@ -13,7 +13,8 @@ export class HomePage {
   items: any[] = [];
   hideFilterBar:boolean = true;
 
-  constructor(private nav: NavController) {
+  constructor(private nav: NavController, private menu: MenuController) {
+    menu.enable(true);
     for (let i = 0; i < 10; i ++) {
       this.items.push({
         name: "name",

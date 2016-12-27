@@ -1,4 +1,18 @@
+<ion-menu [content]="content">
+  <ion-content>
+    <ion-list>
+    ...
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav id="nav" #content></ion-nav>
+
 <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+  </ion-navbar>
   <ion-toolbar>
     <ion-searchbar
       [(ngModel)]="searchString"
@@ -8,13 +22,16 @@
     </ion-searchbar>
     <ion-list no-lines [hidden]="hideFilterBar">
       <ion-item>
+        2
       </ion-item>
       <ion-item>
+        ertf
       </ion-item>
       <ion-item>
+        dfgdfg
       </ion-item>
     </ion-list>
-    <button ion-button icon-only outline color="dark" (click)="toogleFilterBar()">
+    <button ion-button icon-only clear full small color="dark" (click)="toogleFilterBar()">
       <ion-icon name="arrow-dropdown"></ion-icon>
     </button>
   </ion-toolbar>
