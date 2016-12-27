@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Events, NavController } from 'ionic-angular';
+import { Events, NavController} from 'ionic-angular';
 import { DetailPage } from '../details/details';
+import { IdentifyDto } from '../../dto/IdentifyDto'
 
 @Component({
   selector: 'page-home',
@@ -10,6 +11,7 @@ export class HomePage {
 
   searchString: string = "";
   items: any[] = [];
+  hideFilterBar:boolean = true;
 
   constructor(private nav: NavController) {
     for (let i = 0; i < 10; i ++) {
@@ -54,6 +56,12 @@ export class HomePage {
 
   goToDetails(itemId: number) {
     console.log(itemId);
-    this.nav.push(DetailPage);
+    let idDto: IdentifyDto = new IdentifyDto();
+    idDto.Id = itemId;
+    this.nav.push(DetailPage, idDto);
+  }
+
+  toogleFilterBar() {
+    this.hideFilterBar = ! this.hideFilterBar;
   }
 }
